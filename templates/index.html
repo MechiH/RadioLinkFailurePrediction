@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>P2M</title>
+    <!--
+
+    Template 2106 Soft Landing
+
+	http://www.tooplate.com/view/2106-soft-landing
+
+    -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="team" content="" />
+    <link rel='icon' href='../static/images/favicon.ico' type='image/x-icon'/ >
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../static/css/owl.carousel.css" />
+    <link rel="stylesheet" href="../static/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css" />
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../static/css/tooplate-style.css" />   
+   </head>
+  <body>
+    <!-- PRE LOADER -->
+    <section class="preloader">
+      <div class="spinner">
+        <span class="spinner-rotate"></span>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- lOGO TEXT HERE -->
+          <a href="index.html" class="navbar-brand">SUP'COM </a>
+        </div>
+
+        <!-- MENU LINKS -->
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#home" class="smoothScroll">Home</a></li>
+            <li><a href="#feature" class="smoothScroll">Context</a></li>
+            <li><a href="#testimonial" class="smoothScroll">How to use</a></li>
+            <li><a href="#about" class="smoothScroll">About us</a></li>
+            <li><a href="#contact" class="smoothScroll">Contact</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE -->
+    <section id="home" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-3 col-md-6 col-sm-12">
+            <div class="home-info">
+              <h3>P2M Project</h3>
+              <h1>AI based Failure Prediction of 4G Network Base Station</h1>
+
+                <form class="form" action="/predict" method="POST" enctype="multipart/form-data" id="LoadDataForm">
+                  <div class="file-upload-wrapper" data-text="Select your file (file.xlsx) !">
+                    <input
+                      id="multiFiles"
+                      name="uploadFile"
+                      type="file"
+                      class="file-upload-field"
+                      value=""                      
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE -->
+    <section id="feature" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <div class="section-title">
+              <h1>Context</h1>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-6">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="active">
+                <a
+                  href="#tab01"
+                  aria-controls="tab01"
+                  role="tab"
+                  data-toggle="tab"
+                  >Problem</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="#tab02"
+                  aria-controls="tab02"
+                  role="tab"
+                  data-toggle="tab"
+                  >Data</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="#tab03"
+                  aria-controls="tab03"
+                  role="tab"
+                  data-toggle="tab"
+                  >Expectations</a
+                >
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab01" role="tabpanel">
+                <div class="tab-pane-item">
+                  <h2>Problem Description</h2>
+                  <p>
+                    Companies strive to develop methods that allow the identification 
+                    of eventual failures before they occur. <br> In this project, we will 
+                    address the challenges encountered by telecom operators and propose 
+                    AI- based techniques to identify, predict and notify the occurrence 
+                    of failure events.
+                  </p>
+                </div>
+                <div class="tab-pane-item">
+                  <h2>Our Objective</h2>
+                  <p>
+                    The purpose is to build an AI model to predict future Radio Link failure (RLF) 
+                    occurrences through Radio Link KPI history and its associated weather forecast 
+                    data as inputs to produce actionable information. 
+                    Which will benefit maintenance personnel 
+                    to deal with faults in advance and effectively avoid the base station 
+                    from out-of-service.
+                 
+                  </p>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="tab02" role="tabpanel">
+                <div class="tab-pane-item">
+                  <p>
+                    The dataset provided contains anonymyzed information associated to
+                    meteorological stations and RF-links, comprising:
+                  </p>
+                  <h2>Meteo forecast</h2>
+                  <p>
+                    Station Id - Data Time - Weather
+                  </p>
+                </div>
+                <div class="tab-pane-item">
+                  <h2>RL KPis</h2>
+                  <p>
+                    Site Id - Date Time - Severely errored second 
+                    - Error second 
+                    - Unavail second 
+                    - Avail time 
+                    - Bbe 
+                    - RLF       
+                  </p>
+                </div>
+                <div class="tab-pane-item">
+                  <h2>Distances</h2>
+                  <p>
+                    Distances between Sites and Stations.
+                  </p>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="tab03" role="tabpanel">
+                <div class="tab-pane-item">
+                  <h2>Data Quality</h2>
+                  <p>
+                    Our model is as good as the weather predictions. The source of the weather
+                    forecasts, their accuracy, and consistency are the most important
+                    characteristics exploited by our model.
+                  </p>
+                </div>
+                <div class="tab-pane-item">
+                  <h2>Our Model</h2>
+                  <p>
+                    Our experiments and discussions supported the use of ‘Random forest classifier’ as the preferred model in
+                     order to: <br>
+                         • Maximize interpretability. <br>
+                         • Make our model robust against feature scaling issues.<br>
+                         • Use the embedded feature importance capability for
+                    dimensionality reduction.<br>
+                    For simplicity when building our model: <br>
+                    The weather forecast used is the next day’s only, and belongs to
+                    the closest meteorological station to the RF site of interest.
+
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-6">
+            <div class="feature-image">
+              <video autoplay loop muted playsinline>
+                <source src="../static/images/out.mp4" type="video/mp4" 
+                class="video"
+                alt="Thin Laptop">        
+            </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- TESTIMONIAL -->
+    <section id="testimonial" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+            <div class="testimonial-image">
+              <img src="../static/images/ia.jpg" class="img-responsive imgHowto"/> 
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-12">
+            <div class="testimonial-info">
+              <div class="section-title">
+                <h1>How to use ?</h1>
+              </div>
+
+              <div class="owl-carousel owl-theme">
+                <div class="item">
+                  <h3>
+                    - Upload an excel file containing the data described above.
+                    <br>- Visualise result.
+                    <br>- Downoald a pdf file.
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ABOUT -->
+    <section id="about" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-3 col-md-6 col-sm-12">
+            <div class="section-title">
+              <h1>Our Team</h1>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4">
+            <div class="team-thumb">
+              <img
+                src="../static/images/team-image1.jpg"
+                class="img-responsive"
+                alt="Hichem Besbes"
+              />
+              <div class="team-info team-thumb-up">
+                <h2>Oumayma Teyeb</h2>
+                <small>ICT Engineering Student</small>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing eiusmod
+                  tempor incididunt ut labore et dolore magna.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4">
+            <div class="team-thumb">
+              <div class="team-info team-thumb-down">
+                <h2>Hichem Besbes</h2>
+                <small>Supervisor</small>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing eiusmod
+                  tempor incididunt ut labore et dolore magna.
+                </p>
+              </div>
+              <img
+                src="../static/images/team-image22.jpg"
+                class="img-responsive"
+                alt="Oumayma Teyeb"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4">
+            <div class="team-thumb">
+              <img
+                src="../static/images/team-image3.jpg"
+                class="img-responsive"
+                alt="Houssem Mechi"
+              />
+              <div class="team-info team-thumb-up">
+                <h2>Houssem Mechi</h2>
+                <small>ICT Eng Student</small>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing eiusmod
+                  tempor incididunt ut labore et dolore magna.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-10 col-sm-12">
+            <form id="contact-form" role="form" action="" method="post" >
+              
+              <div class="section-title">
+                <h1>Contact Us</h1>
+              </div>
+
+              <div class="col-md-4 col-sm-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Full name"
+                  name="name"
+                  id="name"
+                  required
+                />
+              </div>
+              <div class="col-md-4 col-sm-4">
+                <input
+                  type="email"
+                  id="mail"
+                  class="form-control"
+                  placeholder="Email address"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="col-md-4 col-sm-4">
+                <input
+                  type="submit"
+                  class="form-control"
+                  name="send message"
+                  value="Send Message"
+                  id="btn"
+                />
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <textarea
+                  id="Message"
+                  class="form-control"
+                  rows="8"
+                  placeholder="Your message"
+                  name="message"
+                  required
+                ></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row">
+          <div class="copyright-text col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <p>Copyright &copy; 2021 - Houssem Mechi - Oumayma Teyeb</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Processing Loading Page -->
+    <section class="LoaderBody">
+      <div class="loader">
+    <div>
+      <ul>
+        <li>
+          <svg viewBox="0 0 90 120" fill="currentColor">
+            <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+          </svg>
+        </li>
+        <li>
+          <svg viewBox="0 0 90 120" fill="currentColor">
+            <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+          </svg>
+        </li>
+        <li>
+          <svg viewBox="0 0 90 120" fill="currentColor">
+            <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+          </svg>
+        </li>
+        <li>
+          <svg viewBox="0 0 90 120" fill="currentColor">
+            <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+          </svg>
+        </li>
+        <li>
+          <svg viewBox="0 0 90 120" fill="currentColor">
+            <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+          </svg>
+        </li>
+        <li>
+          <svg viewBox="0 0 90 120" fill="currentColor">
+            <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+          </svg>
+        </li>
+      </ul>
+    </div><span>Processing ...</span>
+    </section>
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/jquery.stellar.min.js"></script>
+    <script src="../static/js/owl.carousel.min.js"></script>
+    <script src="../static/js/smoothscroll.js"></script>
+    <script src="../static/js/custom.js"></script>
+  </body>
+</html>
+
+<!-- <form >
+  <div class="file-upload-wrapper" data-text="Select your file!">
+    <input
+      name="uploadFile"
+      type="file"
+      class="file-upload-field"
+      value=""
+    />
+  </div>
+</form> -->
