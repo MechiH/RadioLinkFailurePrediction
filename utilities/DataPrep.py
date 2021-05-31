@@ -81,5 +81,5 @@ def DataPrep(path):
         columns=['rlf', 'site_id', 'nearest_station', 'datetime', 'forecast_datetime'])
     y = merged_df['rlf']
     z = merged_df[['site_id','datetime']]
-    return x, y,z,temp
+    return x, y,z,met_forecast[['meanTemperature','meanHumidity','wind_speed_day1']]
 

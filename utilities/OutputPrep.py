@@ -3,9 +3,8 @@ import pandas as pd
 from pandas.core.common import flatten
 
 def outpuData(x,prediction,z,temp):
-    normalized_x=x.apply(np.ceil)
   
-    vizualizationData= pd.concat([z['datetime'],normalized_x],axis=1)
+    vizualizationData= pd.concat([z['datetime'],x],axis=1)
     output= pd.concat([z['datetime'],pd.DataFrame(prediction,columns=['prediction'])],axis=1)
     temp=pd.concat([z['datetime'],temp],axis=1)
 
@@ -14,11 +13,11 @@ def outpuData(x,prediction,z,temp):
 
     vizualizationData=vizualizationData.groupby('datetime').mean()
     vizualizationData.update(vizualizationData.div(vizualizationData.sum(axis=0),axis=1))
-    vizualizationData=(vizualizationData*100).astype(int)
+    vizualizationData=(vizualizationData*100).apply(np.ceil)
 
-    tempMeanPerDay=temp.fillna(method='ffill').groupby('datetime').mean().astype(int)
-    print(print(temp.tail(50)))
-    
+    tempMeanPerDay=temp.fillna(method='ffill').groupby('datetime').mean().apply(np.ceil)
+
+
     payload={
         "bbe":vizualizationData['bbe'].values.tolist(),
         "severaly_error_second":(vizualizationData['severaly_error_second']/vizualizationData['severaly_error_second'].sum()).values.tolist(),
