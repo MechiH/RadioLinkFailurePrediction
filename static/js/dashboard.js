@@ -1,10 +1,22 @@
 // ====================MyScript=========================
 $("#switchView").on("click", function (e) {
   e.preventDefault();
-  $("#FirstRow").toggleClass("none");
+  $(".FirstRow").toggleClass("none");
   $("#SecondRow").toggleClass("none");
 });
 var xData= JSON.parse(data)
+var x = 0;
+var len = xData["severaly_error_second"].length
+while(x < len){ 
+  xData["severaly_error_second"][x] = xData["severaly_error_second"][x].toFixed(2); 
+    x++
+}
+var months=[]
+var percentage=[]
+xData['months'].forEach(function (item, index) {
+  months.push(item[0])
+  percentage.push(item[1]*100)
+})
 // ==================DisplayData========================
 var severalyErrorSecondData = xData["severaly_error_second"];
 var ErrorSecondsData = xData["error_second"];
@@ -13,44 +25,34 @@ var AvailableTimeData = xData["avail_time"];
 var BbeData =xData["bbe"];
 var rlfData = xData['rlfPerDat'];
 //-------------WeatherData---------------------
-var humidityData = [1, 15, 26, 20, 33, 27];
-var temperatureData = [3, 33, 21, 42, 19, 32];
-var WindSpeedData = [0, 39, 52, 11, 29, 43];
+var humidityData = xData['humidity']
+var temperatureData = xData['temperature']
+var WindSpeedData = xData['windSpeed']
 // ------------RlfData-------------------
-var rlfSeriesData = [71, 63, 77];
-var rlfBarPerDayData = [14, 25, 21, 17, 12, 13, 11, 19];
+var rlfSeriesData = percentage;
+var rlfBarPerDayData =  xData['rlfPerDat'];
 // -------------------Sparks------------------
 var spark1Data = [25, 66, 41, 59, 25, 44, 12, 36, 9, 21];
 var spark2Data = [12, 14, 2, 47, 32, 44, 14, 55, 41, 69];
 var spark3Data = [47, 45, 74, 32, 56, 31, 44, 33, 45, 19];
 var spark4Data = [15, 75, 47, 65, 14, 32, 19, 54, 44, 61];
 // -----------------DateData------------------
-var rlfSeriesDateData = ["June", "May", "April"];
-var WeatherDateData = [
-  "01/15/2002",
-  "01/16/2002",
-  "01/17/2002",
-  "01/18/2002",
-  "01/19/2002",
-  "01/20/2002",
-];
-var dateRlfBarPerDay = [
-  "23/05/2021",
-  "24/05/2021",
-  "25/05/2021",
-  "26/05/2021",
-  "27/05/2021",
-  "28/05/2021",
-  "29/05/2021",
-];
-var kpisDateData = [
-  "2011 Q1",
-  "2011 Q2",
-  "2011 Q3",
-  "2011 Q4",
-  "2012 Q1",
-  "2012 Q2",
-];
+var rlfSeriesDateData = months;
+var WeatherDateData = xData['date']
+var dateRlfBarPerDay = xData['date']
+var kpisDateData = xData['date']
+// ======================RLFTable=======================
+for (let i = 0; i < xData['output'].length; i=i+2) {
+
+  $("tBody").append('<tr class="row100 body">'+
+  '<td class="cell100 column1">'+xData['output'][i]+'</td>'+
+  '<td class="cell100 column2">'+xData['output'][i+1]+'</td> '+
+'</tr>');
+}
+$('#sites').text(xData['Counters'][0])
+$('#rlf').text(xData['Counters'][3])
+$('#weather').text(xData['Counters'][1])
+$('#kpis').text(xData['Counters'][2])   
 // =======================APEX==========================
 window.Apex = {
   chart: {
@@ -410,8 +412,8 @@ var optionsCircle4 = {
     show: true,
     floating: true,
     position: "right",
-    offsetX: 70,
-    offsetY: 240,
+    offsetX: 90,
+    offsetY: 340,
   },
 };
 
@@ -518,21 +520,18 @@ var chartArea = new ApexCharts(
   optionsArea
 );
 
+
 chartArea.render();
 var doc = new jsPDF();
 var specialElementHandlers = {
-  "#editor": function (element, renderer) {
-    return true;
-  },
+    '#editor': function (element, renderer) {
+        return true;
+    }
 };
-/* fusionexport integrations START */
-(() => {
-  const btn = document.getElementById("fusionexport-btn");
-  btn.addEventListener("click", async function () {
-    doc.fromHTML($("html").html(), 15, 15, {
-      width: 170,
-      elementHandlers: specialElementHandlers,
+
+$('#fusionexport-btn').click(function () {
+
+    doc.addHTML($('#DownloadPdf')[0], function () {
+        doc.save('Report.pdf');
     });
-    doc.save("sample-file.pdf");
-  });
-})();
+});

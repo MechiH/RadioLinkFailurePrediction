@@ -25,6 +25,15 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/dashboard.css')}}"
     />
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/util.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css')}}"
+    />
   </head>
 
   <body>
@@ -49,8 +58,8 @@
               <div class="col-md-3">
                 <div class="box box1">
                   <div class="details">
-                    <h3>1213</h3>
-                    <h4>CLICKS</h4>
+                    <h3 id="rlf">15</h3>
+                    <h4>RLF</h4>
                   </div>
                   <div id="spark1"></div>
                 </div>
@@ -58,8 +67,8 @@
               <div class="col-md-3">
                 <div class="box box2">
                   <div class="details">
-                    <h3>422</h3>
-                    <h4>VIEWS</h4>
+                    <h3 id="sites">422</h3>
+                    <h4>Sites</h4>
                   </div>
                   <div id="spark2"></div>
                 </div>
@@ -67,8 +76,8 @@
               <div class="col-md-3">
                 <div class="box box3">
                   <div class="details">
-                    <h3>311</h3>
-                    <h4>LEADS</h4>
+                    <h3 id="kpis">14310</h3>
+                    <h4>Kpis </h4>
                   </div>
                   <div id="spark3"></div>
                 </div>
@@ -76,15 +85,15 @@
               <div class="col-md-3">
                 <div class="box box4">
                   <div class="details">
-                    <h3>22</h3>
-                    <h4>SALES</h4>
+                    <h3 id="weather">1345</h3>
+                    <h4>Weather </h4>
                   </div>
                   <div id="spark4"></div>
                 </div>
               </div>
             </div>
 
-            <div class="row mt-4" id="FirstRow">
+            <div class="row mt-4 FirstRow">
               <div class="col-md-5">
                 <div class="box shadow mt-4">
                   <div id="radialBarBottom"></div>
@@ -97,7 +106,7 @@
               </div>
             </div>
 
-            <div class="row mt-4 none" id="SecondRow">
+            <div class="row mt-4 FirstRow" >
               <div class="col-md-5">
                 <div class="box shadow mt-4">
                   <div id="barchart"></div>
@@ -109,22 +118,78 @@
                 </div>
               </div>
             </div>
+            <div class="limiter none" id="SecondRow">      
+                <div class="wrap-table100">
+                  <div class="table100 ver1 m-b-110">
+                    <div class="table100-head">
+                      <table>
+                        <thead>
+                          <tr class="row100 head">
+                            <th class="cell100 column1">Site ID</th>
+                            <th class="cell100 column2">Prediction</th>                       
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
+          
+                    <div class="table100-body js-pscroll">
+                      <table>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+            </div>
+                  
           </div>
         </div>
       </div>
     </div>
+    <div class="none" id="DownloadPdf">
+      <div class="header">
+        <h3>Radio Link Failure Report</h3>
+    </div>
+    <div class="title"><h3>SUP'COM</h3></div>
+    <div class="rows">
+        <div class="row">
+            <div class="col">
+                <h3>1245</h3>
+                <p>Weather records present <br>
+                    in the uploaded dataset</p>
+            </div>
+            <div class="col">
+                <h3>456</h3>
+                <p>Kpis records present <br>
+                    in the uploaded dataset</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h3>646</h3>
+                    <p>Number of sites present <br>
+                        in the uploaded dataset</p>
+                    </div>
+                    <div class="col">
+                <h3>64</h3>
+                <p>Possible Radio Link Failure  <br>predicted</p>
+            </div>
+        </div>
+    </div>
+    </div>
     <div id="editor"></div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <!-- installing few libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js"></script>
-    <script>
-           var data={{data|tojson}}
-  
-    </script>
-    <script src="{{ url_for('static', filename='js/dashboard.js')}}"></script>
+      <script>
+        var data={{data|tojson}}
+        
+        </script>
+  <!--===============================================================================================-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js" integrity="sha512-s/XK4vYVXTGeUSv4bRPOuxSDmDlTedEpMEcAQk0t/FMd9V6ft8iXdwSBxV0eD60c6w/tjotSlKu9J2AAW1ckTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script src="{{ url_for('static', filename='js/dashboard.js')}}"></script>
   </body>
 </html>
